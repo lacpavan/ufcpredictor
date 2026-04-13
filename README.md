@@ -1,6 +1,6 @@
 # UFC Winner Predictor
 
-End-to-end machine learning project that predicts UFC fight winners using pre-fight fighter data, baseline comparison, SHAP explainability, and a deployed Streamlit app.
+ Machine Learning system for analyzing and predicting UFC fight outcomes based on historical data.
 
 <p align="center">
   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHBlMm1mcmI0dWR4cHJkaWk2a2poN2ZvNDN4aDM2eHI4Y2czZG03eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/N6o559ZkDsozTnQDcE/giphy.gif" width="600"/>
@@ -8,10 +8,6 @@ End-to-end machine learning project that predicts UFC fight winners using pre-fi
 
 <p align="center">
   Predicting UFC fight outcomes using Machine Learning
-</p>
-
-<p align="center">
-  Machine Learning system for analyzing and predicting UFC fight outcomes based on historical data.
 </p>
 
 <p align="center">
@@ -36,12 +32,12 @@ The project was built to demonstrate an end-to-end ML workflow, from data prepar
 
 The project includes:
 
-- data cleaning and preprocessing
-- comparative feature engineering
-- temporal train/test split
-- classification model training
-- performance evaluation
-- interactive Streamlit app
+- Data cleaning and preprocessing
+- Comparative feature engineering
+- Temporal train/test split
+- Classification model training
+- Performance evaluation
+- Interactive Streamlit app
 
 ---
 
@@ -107,13 +103,13 @@ Example request:
 
 The model compares the red corner and blue corner using variables such as:
 
-- age
-- height
-- reach
-- wins and losses
-- significant strike accuracy
-- takedown accuracy
-- fighting stance
+- Age
+- Height
+- Reach
+- Wins and losses
+- Significant strike accuracy
+- Takedown accuracy
+- Fighting stance
 
 Instead of analyzing each fighter in isolation, the model focuses on the matchup difference between both sides.
 
@@ -125,15 +121,15 @@ The current classifier is a `HistGradientBoostingClassifier` from `scikit-learn`
 
 Why this model:
 
-- strong baseline for tabular data
-- handles non-linear relationships well
-- works well with mixed numerical feature sets after preprocessing
+- Strong baseline for tabular data
+- Handles non-linear relationships well
+- Works well with mixed numerical feature sets after preprocessing
 
 Current training setup:
 
-- imputation: `SimpleImputer(strategy="median")`
-- classifier: `HistGradientBoostingClassifier`
-- validation strategy: temporal train/test split
+- Imputation: `SimpleImputer(strategy="median")`
+- Classifier: `HistGradientBoostingClassifier`
+- Validation strategy: temporal train/test split
 
 The model implementation lives in `src/ufc_predictor/modeling.py`.
 
@@ -143,10 +139,10 @@ The model implementation lives in `src/ufc_predictor/modeling.py`.
 
 Using the current Kaggle-based dataset pipeline, the latest training report shows:
 
-- selected model: `HistGradientBoostingClassifier`
-- accuracy: `0.7466`
+- Selected Model: `HistGradientBoostingClassifier`
+- Accuracy: `0.7466`
 - ROC AUC: `0.8242`
-- log loss: `0.5115`
+- Log Loss: `0.5115`
 
 These metrics are generated after training with a temporal split, so the model is evaluated on more recent fights instead of random shuffled rows.
 
@@ -158,7 +154,7 @@ The project also compares the selected model against simpler baselines to make t
 
 Latest comparison:
 
-| Model | Accuracy | ROC AUC | Log loss |
+| Model | Accuracy | ROC AUC | Log Loss |
 |---|---:|---:|---:|
 | DummyClassifier (most frequent) | `0.5641` | `0.5000` | `6.0221` |
 | Logistic Regression | `0.6984` | `0.8200` | `0.5771` |
@@ -189,7 +185,7 @@ If you want to reproduce the pipeline from scratch:
 
 ---
 
-## How to run
+## How to run?
 
 Install dependencies:
 
@@ -228,13 +224,13 @@ streamlit run app.py
 
 Main files:
 
-- `src/ufc_predictor/data.py`: data loading and transformation
-- `src/ufc_predictor/features.py`: feature engineering
-- `src/ufc_predictor/modeling.py`: training and evaluation
-- `src/ufc_predictor/train.py`: end-to-end pipeline
+- `src/ufc_predictor/data.py`: Data loading and transformation
+- `src/ufc_predictor/features.py`: fFature engineering
+- `src/ufc_predictor/modeling.py`: Training and evaluation
+- `src/ufc_predictor/train.py`: End-to-end pipeline
 - `app.py`: Streamlit interface
 - `api/main.py`: FastAPI application
-- `notebooks/01_eda_ufc.ipynb`: exploratory data analysis walkthrough
+- `notebooks/01_eda_ufc.ipynb`: Exploratory data analysis walkthrough
 
 ---
 
@@ -246,7 +242,7 @@ Main files:
 
 ---
 
-## 🧠 Modeling Decisions
+## Modeling Decisions
 
 - Selected `HistGradientBoostingClassifier` because it performs well on tabular data, captures non-linear patterns, and delivered the best overall balance among the tested models.
 - Feature engineering focused on matchup-based comparisons such as age difference, reach difference, win rate difference, and striking/takedown efficiency between red and blue corners.
@@ -254,7 +250,7 @@ Main files:
 
 ---
 
-## ⚙️ System Design
+## System Design
 
 - Data pipeline: loads the UFC dataset, standardizes columns, prepares the target, and generates the modeling dataset.
 - Model training: builds engineered features, applies temporal validation, compares baselines, trains the main classifier, and stores artifacts for inference.
@@ -277,12 +273,12 @@ This limitation does not make the project useless, but it is important to state 
 
 The app allows you to:
 
-- compare two fighters
-- generate a model prediction
-- inspect estimated win probability for both sides
-- inspect SHAP-based feature contributions for each prediction
-- browse the processed dataset
-- view the training report
+- Compare two fighters
+- Generate a model prediction
+- Inspect estimated win probability for both sides
+- Inspect SHAP-based feature contributions for each prediction
+- Browse the processed dataset
+- View the training report
 
 ---
 
@@ -294,10 +290,10 @@ To make the decision process more visible, the repository now includes an EDA no
 
 The notebook is meant to show:
 
-- dataset shape and missing values
-- target distribution
-- core numeric summaries
-- first checks before feature engineering and modeling
+- Dataset shape and missing values
+- Target distribution
+- Core numeric summaries
+- First checks before feature engineering and modeling
 
 This helps make the project more transparent for technical reviewers and recruiters.
 
@@ -305,7 +301,7 @@ This helps make the project more transparent for technical reviewers and recruit
 
 ## Next steps
 
-- improve feature engineering with historical rolling stats
-- tune hyperparameters
-- expand SHAP analysis across multiple fighter profiles and matchup scenarios
-- deploy the FastAPI service separately as a standalone backend
+- Improve feature engineering with historical rolling stats
+- Tune hyperparameters
+- Expand SHAP analysis across multiple fighter profiles and matchup scenarios
+- Deploy the FastAPI service separately as a standalone backend
