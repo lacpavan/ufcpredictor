@@ -11,6 +11,10 @@ End-to-end machine learning project that predicts UFC fight winners using pre-fi
 </p>
 
 <p align="center">
+  Machine Learning system for analyzing and predicting UFC fight outcomes based on historical data.
+</p>
+
+<p align="center">
   <a href="https://ufc-predictor.streamlit.app/">Live App</a> •
   <a href="https://github.com/lacpavan/ufcpredictor">GitHub Repository</a>
 </p>
@@ -239,6 +243,22 @@ Main files:
 - **Temporal data split**: training and test sets are separated by date, reducing information leakage risk.
 - **Comparative features**: the model learns the difference between red and blue corner attributes.
 - **Pre-fight variables only**: features are based on information available before the fight.
+
+---
+
+## 🧠 Modeling Decisions
+
+- Selected `HistGradientBoostingClassifier` because it performs well on tabular data, captures non-linear patterns, and delivered the best overall balance among the tested models.
+- Feature engineering focused on matchup-based comparisons such as age difference, reach difference, win rate difference, and striking/takedown efficiency between red and blue corners.
+- Trade-offs considered included interpretability vs. performance, historical realism vs. dataset availability, and keeping the model strong enough for prediction while still understandable through SHAP explanations and baseline comparisons.
+
+---
+
+## ⚙️ System Design
+
+- Data pipeline: loads the UFC dataset, standardizes columns, prepares the target, and generates the modeling dataset.
+- Model training: builds engineered features, applies temporal validation, compares baselines, trains the main classifier, and stores artifacts for inference.
+- API layer: exposes prediction endpoints through FastAPI so the trained model can be consumed outside the Streamlit interface.
 
 ---
 
