@@ -1,0 +1,13 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.streamlit/secrets.toml
+reports/
+project_zip/
+*.zip
