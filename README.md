@@ -167,15 +167,19 @@ This helps show that the current model is not only producing a raw score, but al
 
 ## Dataset
 
-The original dataset is not included in this repository because of file size.
+The repository includes the current dataset and trained artifacts used for the live demo.
 
-To reproduce the project:
+Main data files:
+
+- `data/raw/UFC.csv`
+- `data/processed/modeling_dataset.csv`
+- `models/ufc_winner_model.joblib`
+
+If you want to reproduce the pipeline from scratch:
 
 1. Access the dataset on Kaggle: [UFC DATASETS [1994-2025]](https://www.kaggle.com/datasets/neelagiriaditya/ufc-datasets-1994-2025)
 2. Download and extract the `UFC.csv` file
-3. Place the file in one of these locations:
-   - `data/raw/UFC.csv`
-   - `C:/Users/laris/Downloads/archive/UFC.csv`
+3. Place the file at `data/raw/UFC.csv`
 
 > You will need a free Kaggle account to download the dataset.
 
@@ -282,7 +286,6 @@ This helps make the project more transparent for technical reviewers and recruit
 ## Next steps
 
 - improve feature engineering with historical rolling stats
-- test additional models
 - tune hyperparameters
-- compare SHAP explanations across different fighter profiles
-- deploy a production-ready API
+- expand SHAP analysis across multiple fighter profiles and matchup scenarios
+- deploy the FastAPI service separately as a standalone backend
