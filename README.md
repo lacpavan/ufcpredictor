@@ -48,6 +48,57 @@ The project includes:
 
 ---
 
+## API
+
+The project also includes a production-style API built with `FastAPI`.
+
+Main endpoints:
+
+- `GET /health`: checks if the model is loaded correctly
+- `POST /predict`: returns the predicted winner, probabilities, and optional SHAP-based explanations
+
+Run locally:
+
+```bash
+uvicorn api.main:app --reload
+```
+
+Interactive docs:
+
+- `http://127.0.0.1:8000/docs`
+
+Example request:
+
+```json
+{
+  "red_corner": {
+    "name": "Alex Pereira",
+    "age": 38,
+    "height_cm": 193,
+    "reach_cm": 201,
+    "wins": 12,
+    "losses": 3,
+    "sig_str_acc": 0.62,
+    "takedown_acc": 0.50,
+    "stance": "Orthodox"
+  },
+  "blue_corner": {
+    "name": "Ciryl Gane",
+    "age": 35,
+    "height_cm": 193,
+    "reach_cm": 206,
+    "wins": 13,
+    "losses": 2,
+    "sig_str_acc": 0.61,
+    "takedown_acc": 0.25,
+    "stance": "Orthodox"
+  },
+  "include_explanations": true
+}
+```
+
+---
+
 ## Features
 
 The model compares the red corner and blue corner using variables such as:
@@ -157,6 +208,7 @@ streamlit run app.py
 ```text
 .
 |-- app.py
+|-- api
 |-- README.md
 |-- requirements.txt
 |-- data
@@ -173,6 +225,7 @@ Main files:
 - `src/ufc_predictor/modeling.py`: training and evaluation
 - `src/ufc_predictor/train.py`: end-to-end pipeline
 - `app.py`: Streamlit interface
+- `api/main.py`: FastAPI application
 - `notebooks/01_eda_ufc.ipynb`: exploratory data analysis walkthrough
 
 ---
