@@ -1,6 +1,6 @@
 # UFC Winner Predictor
 
-ML project that predicts UFC fight winners based on fighter statistics and pre-fight data.
+End-to-end machine learning project that predicts UFC fight winners using pre-fight fighter data, baseline comparison, SHAP explainability, and a deployed Streamlit app.
 
 <p align="center">
   <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHBlMm1mcmI0dWR4cHJkaWk2a2poN2ZvNDN4aDM2eHI4Y2czZG03eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/N6o559ZkDsozTnQDcE/giphy.gif" width="600"/>
@@ -8,6 +8,11 @@ ML project that predicts UFC fight winners based on fighter statistics and pre-f
 
 <p align="center">
   Predicting UFC fight outcomes using Machine Learning
+</p>
+
+<p align="center">
+  <a href="https://ufc-predictor.streamlit.app/">Live App</a> •
+  <a href="https://github.com/lacpavan/ufcpredictor">GitHub Repository</a>
 </p>
 
 <p align="center">
@@ -21,9 +26,9 @@ ML project that predicts UFC fight winners based on fighter statistics and pre-f
 
 ## About
 
-I'm an MMA fan, and that inspired me to build a project that analyzes UFC matchups with data instead of relying only on opinion.
-
 The **UFC Winner Predictor** estimates which fighter is more likely to win based on pre-fight information from both athletes.
+
+The project was built to demonstrate an end-to-end ML workflow, from data preparation to model comparison, explainability, and interactive deployment.
 
 The project includes:
 
@@ -33,6 +38,13 @@ The project includes:
 - classification model training
 - performance evaluation
 - interactive Streamlit app
+
+---
+
+## Live Demo
+
+- Streamlit app: [https://ufc-predictor.streamlit.app/](https://ufc-predictor.streamlit.app/)
+- Repository: [https://github.com/lacpavan/ufcpredictor](https://github.com/lacpavan/ufcpredictor)
 
 ---
 
