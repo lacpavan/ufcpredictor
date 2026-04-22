@@ -32,18 +32,19 @@ This project uses historical UFC data to train a classification model that estim
 
 ---
 
-## 🧠 Key ML decisions
+## 🧠 Key ML Decisions
 
 This project was designed with real-world Machine Learning challenges in mind:
 
-- **Temporal train-test split** to avoid data leakage and simulate real-world predictions  
-- **Feature engineering based on fighter comparison (Red vs Blue corner)**  
-- **Baseline model comparison before selecting the final model**  
-- Focus on **model reliability**, not just performance  
+- Temporal train-test split to avoid data leakage and simulate real-world predictions  
+- Feature engineering based on fighter comparison (Red vs Blue corner)  
+- Baseline model comparison before selecting the final model  
+- Focus on model reliability, not just performance  
+- Use of model interpretability with SHAP  
 
 ---
 
-## ⚙️ Tech stack:
+## ⚙️ Tech Stack
 
 - Python  
 - pandas, NumPy  
@@ -54,11 +55,11 @@ This project was designed with real-world Machine Learning challenges in mind:
 
 ---
 
-## 📊 Model approach:
+## 📊 Model Approach
 
 The model predicts fight outcomes based on pre-fight features.
 
-### Key steps:
+Key steps:
 
 1. Data preprocessing  
 2. Feature engineering (fighter vs opponent comparison)  
@@ -66,15 +67,30 @@ The model predicts fight outcomes based on pre-fight features.
 4. Model training and evaluation  
 5. Model explainability using SHAP  
 6. Prediction and visualization  
+
 ---
 
-## 📈 Evaluation metrics
+## 📈 Evaluation Metrics
 
 - Accuracy  
 - ROC AUC  
 - Log Loss  
 
 These metrics help evaluate both performance and prediction confidence.
+
+---
+
+## 🔍 Model Interpretability
+
+To better understand model decisions, SHAP (SHapley Additive exPlanations) is used.
+
+This allows:
+
+- Identifying which features most influence predictions  
+- Improving model transparency  
+- Supporting more reliable decision-making  
+
+Interpretability is essential to ensure trust in Machine Learning systems, especially in real-world applications.
 
 ---
 
@@ -90,64 +106,73 @@ The project includes an interactive Streamlit app where users can:
 
 ---
 
-## 📂 Project structure
-
+## 📂 Project Structure
 
 ufcpredictor/
-│
-├── src/ufc_predictor/
-│ ├── data.py
-│ ├── features.py
-│ ├── modeling.py
-│ ├── train.py
-│ └── config.py
-│
-├── app.py
-├── requirements.txt
-└── README.md
 
+├── src/ufc_predictor/  
+│   ├── data.py  
+│   ├── features.py  
+│   ├── modeling.py  
+│   ├── train.py  
+│   └── config.py  
+
+├── app.py  
+├── requirements.txt  
+└── README.md  
 
 ---
 
 ## ▶️ How to run:
 
-### 1. Install dependencies
+1. Install dependencies
 
-```bash
 pip install -r requirements.txt
-```
-```
+
 2. Train the model
+
 python -m src.ufc_predictor.train
-```
-4. Run the app
+
+3. Run the app
+
 streamlit run app.py
 
-⚠️ Limitations
-- Predictions are based only on historical data
-- Does not include real-time factors (injuries, weight cuts, strategy)
-- Model performance depends on data quality
+---
 
-🚀 Future improvements
-- Add API with FastAPI for real-time predictions
-- Improve feature engineering
-- Deploy model to production environment
-- Add model monitoring and versioning
+## ⚠️ Limitations
 
-💡 Why this project matters?
+- Predictions are based only on historical data  
+- Does not include real-time factors such as injuries, weight cuts, or strategy  
+- Model performance depends on data quality  
+
+---
+
+## 🚀 Future improvements
+
+- Improve SHAP visualizations for better interpretability  
+- Add API with FastAPI for real-time predictions  
+- Deploy model to production environment  
+- Add model monitoring and versioning  
+
+---
+
+## 💡 Why this project matters
 
 This project goes beyond a simple ML model.
 
 It focuses on:
 
-- Avoiding common ML mistakes (like data leakage)
-- Structuring a reproducible pipeline
-- Simulating real-world prediction scenarios
+- Avoiding common ML mistakes such as data leakage  
+- Structuring a reproducible pipeline  
+- Simulating real-world prediction scenarios  
+- Making model decisions interpretable  
 
-🤝 Let's connect:
+---
+
+## 🤝 Let's Connect
 
 If you're interested in Machine Learning, AI, or data-driven systems, feel free to connect!
 
-```
+---
+
 Made by @lacpavan
-```
